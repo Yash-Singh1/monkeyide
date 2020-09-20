@@ -1,0 +1,15 @@
+{
+  "name": "monkeyide",
+  "version": "1.0.0",
+  "description": "A lightweight multi-tab IDE built with CodeMirror",
+  "main": "preview.js",
+  "scripts": {
+    "test": "npm install && node preview.js"
+  },
+  "author": "Yash Singh",
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.57.0",
+    "express": "^4.17.1"
+  }
+}
