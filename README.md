@@ -88,6 +88,8 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
   Remove the tab at the specified index.
 - `removeAll`
   Removes all of the tabs.
+- `pack`
+  Packs up the given list. You can run `ide.pack(ide.files)` to pack up everything now
 
 ## Testing
 

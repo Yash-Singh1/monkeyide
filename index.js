@@ -137,3 +137,22 @@ ide.removeAll = function () {
     ide.removeTab(0);
   }
 };
+
+ide.pack = function (obj) {
+  let returnedList = [];
+  for (let i = 0; i < obj.length; i++) {
+    let element = obj[i];
+    if (
+      typeof element.configuration !== "object" ||
+      element.configuration === undefined
+    ) {
+      element.configuration = {};
+    }
+    element.configuration.value = element.mirror.getValue();
+    returnedList.push({
+      name: element.name,
+      configuration: element.configuration,
+    });
+  }
+  return returnedList;
+};
