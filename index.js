@@ -131,3 +131,9 @@ ide.removeTab = function (id) {
   ide.files = this.removeElement(ide.files, id);
   this.totalTabs -= 1;
 };
+
+ide.removeAll = function () {
+  while (ide.totalTabs !== 0) {
+    ide.removeTab(0);
+  }
+};

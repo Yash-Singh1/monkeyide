@@ -86,6 +86,8 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
   Returns the given index on the `ide.files` list.
 - `removeTab`
   Remove the tab at the specified index.
+- `removeAll`
+  Removes all of the tabs.
 
 ## Testing
 
