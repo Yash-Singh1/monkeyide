@@ -89,7 +89,19 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
 - `removeAll`
   Removes all of the tabs.
 - `pack`
-  Packs up the given list. You can run `ide.pack(ide.files)` to pack up everything now
+  Packs up the given list. You can run `ide.pack(ide.files)` to pack up everything now.
+- `large`
+  Mass create files. Takes in a object in the form:
+  ```json
+  {
+    "name": "NAME",
+    "configuration": {
+      "key": "value",
+      "value": "CODEHERE",
+      "etc": "etc"
+    }
+  }
+  ```
 
 ## Testing
 

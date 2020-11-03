@@ -156,3 +156,10 @@ ide.pack = function (obj) {
   }
   return returnedList;
 };
+
+ide.large = function (lst) {
+  for (let i = 0; i < lst.length; i++) {
+    let element = lst[i];
+    ide.createTab(element.name, element.configuration);
+  }
+};
