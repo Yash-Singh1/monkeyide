@@ -1,5 +1,6 @@
 # Ignore the .idea/ directory
 .idea/
 
-# Ignore the node_modules directory
+# Dependencies
 node_modules/
+package-lock.json
