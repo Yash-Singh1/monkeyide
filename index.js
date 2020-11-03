@@ -29,8 +29,13 @@ ide.createTab = function (string, configGiven) {
   }
   let i;
   let newTabDiv = document.createElement("div");
-  newTabDiv.innerHTML = '<textarea id="textarea"></textarea>';
-  newTabDiv.className = "tabcontent";
+  newTabDiv.innerHTML =
+    '<textarea id="textarea">' + configGiven.value + "</textarea>";
+  newTabDiv.classList.add("tabcontent");
+  if (configGiven.theme !== undefined) {
+    newTabDiv.classList.add("cm-s-" + configGiven.theme);
+    newTabDiv.classList.add("CodeMirror");
+  }
   for (i = 0; i < document.querySelectorAll(".tabcontent").length; i++) {
     let element = document.querySelectorAll(".tabcontent")[i];
     element.style.display = "none";
