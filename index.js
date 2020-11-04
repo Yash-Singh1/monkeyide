@@ -162,4 +162,5 @@ ide.large = function (lst) {
     let element = lst[i];
     ide.createTab(element.name, element.configuration);
   }
+  ide.openTab(0);
 };
