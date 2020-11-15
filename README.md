@@ -8,8 +8,8 @@ To import `MonkeyIDE`, run:
 
 ```bash
 npm install --save codemirror
-curl -s -o- https://yash-singh1.github.io/monkeyIDE/index.js > monkeyide.js
-curl -s -o- https://yash-singh1.github.io/monkeyIDE/style.css > monkeyide.css
+curl -s -o- https://extpark.github.io/monkeyIDE/index.js > monkeyide.js
+curl -s -o- https://extpark.github.io/monkeyIDE/style.css > monkeyide.css
 
 ```
 
