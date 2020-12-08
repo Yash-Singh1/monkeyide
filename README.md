@@ -6,7 +6,7 @@
 
 To import `MonkeyIDE`, run:
 
-```bash
+```sh
 npm install --save codemirror
 curl -s -o- https://extpark.github.io/monkeyIDE/index.js > monkeyide.js
 curl -s -o- https://extpark.github.io/monkeyIDE/style.css > monkeyide.css
@@ -51,11 +51,11 @@ The following are some plain strings in the `ide` object:
 - `files`
   This is the one list inside the `ide` object that contains objects. These objects are in the format:
 
-```
+```json
 {
-	mirror: CodeMirror,
-	name: String,
-	configuration: Object
+	"mirror": "CodeMirror",
+	"name": "String",
+	"configuration": "Object"
 }
 ```
 
@@ -107,7 +107,7 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
 
 To test this program locally, run:
 
-```bash
+```sh
 npm run test
 ```
 
