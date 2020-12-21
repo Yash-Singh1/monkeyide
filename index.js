@@ -1,65 +1,58 @@
 var ide = {};
 
-ide.name = "monkeyide";
-ide.version = "1.0.0";
-ide.license = "MIT";
-ide.buttonsBar = document.createElement("div");
-ide.buttonsBar.className = "tabbuttons";
+ide.name = 'monkeyide';
+ide.version = '1.0.0';
+ide.license = 'MIT';
+ide.buttonsBar = document.createElement('div');
+ide.buttonsBar.className = 'tabbuttons';
 ide.files = [];
 ide.totalTabs = 0;
-ide.limit = "infinity";
+ide.limit = 'infinity';
 document.body.appendChild(ide.buttonsBar);
-ide.tabsElements = document.createElement("div");
-ide.tabsElements.id = "tabs";
+ide.tabsElements = document.createElement('div');
+ide.tabsElements.id = 'tabs';
 document.body.appendChild(ide.tabsElements);
 
-ide.removeElement = function (array, index) {
-  let returnedArray = [];
-  for (let i = 0; i < array.length; i++) {
-    if (i !== index) {
-      returnedArray.push(array[i]);
-    }
-  }
-  return returnedArray;
-};
-
-ide.createTab = function (string, configGiven) {
-  if (typeof this.limit === "number" && this.totalTabs >= this.limit) {
+ide.createTab = function (tabName, configGiven) {
+  if (typeof this.limit === 'number' && this.totalTabs >= this.limit) {
     return;
   }
   let i;
-  let newTabDiv = document.createElement("div");
+  let newTabDiv = document.createElement('div');
   newTabDiv.innerHTML =
-    '<textarea id="textarea">' + configGiven.value + "</textarea>";
-  newTabDiv.classList.add("tabcontent");
-  if (configGiven.theme !== undefined) {
-    newTabDiv.classList.add("cm-s-" + configGiven.theme);
-    newTabDiv.classList.add("CodeMirror");
+    '<textarea id="textarea">' + configGiven.value + '</textarea>';
+  newTabDiv.classList.add('tabcontent');
+  if (typeof configGiven.placeholder != 'undefined') {
+    newTabDiv.placeholder = configGiven.placeholder;
   }
-  for (i = 0; i < document.querySelectorAll(".tabcontent").length; i++) {
-    let element = document.querySelectorAll(".tabcontent")[i];
-    element.style.display = "none";
+  if (typeof configGiven.theme != 'undefined') {
+    newTabDiv.classList.add('cm-s-' + configGiven.theme);
+    newTabDiv.classList.add('CodeMirror');
   }
-  newTabDiv.style.display = "block";
-  tabsCurrentTotalAdded = document.getElementById("tabs").childElementCount;
-  newTabDiv.id = "tab-" + tabsCurrentTotalAdded;
-  document.getElementById("tabs").appendChild(newTabDiv);
-  let newTabButton = document.createElement("button");
+  for (i = 0; i < document.querySelectorAll('.tabcontent').length; i++) {
+    let element = document.querySelectorAll('.tabcontent')[i];
+    element.style.display = 'none';
+  }
+  newTabDiv.style.display = 'block';
+  tabsCurrentTotalAdded = document.getElementById('tabs').childElementCount;
+  newTabDiv.id = 'tab-' + tabsCurrentTotalAdded;
+  document.getElementById('tabs').appendChild(newTabDiv);
+  let newTabButton = document.createElement('button');
   newTabButton.id = tabsCurrentTotalAdded;
-  newTabButton.className = "buttonsFortab";
+  newTabButton.className = 'buttonsFortab';
   newTabButton.onclick = function (event) {
-    ide.openTab(event.target.id);
+    this.openTab(event.target.id);
   };
-  newTabButton.innerHTML = string;
-  document.querySelector(".tabbuttons").appendChild(newTabButton);
+  newTabButton.innerHTML = tabName;
+  document.querySelector('.tabbuttons').appendChild(newTabButton);
   this.files.push({
     mirror: CodeMirror.fromTextArea(
       document.querySelectorAll(
-        "#tab-" + tabsCurrentTotalAdded + " textarea"
+        '#tab-' + tabsCurrentTotalAdded + ' textarea'
       )[0],
       configGiven
     ),
-    name: string,
+    name: tabName,
     configuration: configGiven,
   });
   this.openTab(tabsCurrentTotalAdded);
@@ -67,46 +60,46 @@ ide.createTab = function (string, configGiven) {
 };
 
 ide.getCodeByTab = function (index) {
-  return ide.files[index].mirror.getValue();
+  return this.files[index].mirror.getValue();
 };
 
 ide.getTabs = function () {
-  return ide.files;
+  return this.files;
 };
 
 ide.getTab = function (id) {
-  return ide.files[id];
+  return this.files[id];
 };
 
 ide.openTab = function (tabIDGiven) {
-  let tabID = "tab-" + tabIDGiven;
+  let tabID = 'tab-' + tabIDGiven;
   let i;
-  let tabContents = document.getElementsByClassName("tabcontent");
-  let tabButtons = document.getElementsByClassName("buttonsFortab");
+  let tabContents = document.getElementsByClassName('tabcontent');
+  let tabButtons = document.getElementsByClassName('buttonsFortab');
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
     if (element.id == tabID) {
-      element.style.display = "block";
+      element.style.display = 'block';
     } else {
-      element.style.display = "none";
+      element.style.display = 'none';
     }
   }
   for (i = 0; i < tabButtons.length; i++) {
     let element = tabButtons[i];
     if (element.id == tabID.substring(4)) {
-      element.style.backgroundColor = "grey";
+      element.style.backgroundColor = 'grey';
     } else {
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = 'white';
     }
   }
-  ide.currentTab = tabIDGiven;
+  this.currentTab = tabIDGiven;
 };
 
 ide.removeTab = function (id) {
-  let tabID = "tab-" + id;
+  let tabID = 'tab-' + id;
   let i;
-  let tabContents = document.getElementsByClassName("tabcontent");
-  let tabButtons = document.getElementsByClassName("buttonsFortab");
+  let tabContents = document.getElementsByClassName('tabcontent');
+  let tabButtons = document.getElementsByClassName('buttonsFortab');
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
     if (element.id == tabID) {
@@ -121,20 +114,20 @@ ide.removeTab = function (id) {
   }
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
-    element.id = "tab-" + i;
+    element.id = 'tab-' + i;
   }
   for (i = 0; i < tabButtons.length; i++) {
     let element = tabButtons[i];
     element.id = i;
   }
-  ide.openTab(0);
-  ide.files = this.removeElement(ide.files, id);
+  this.openTab(0);
+  this.files = this.files.filter((value, index) => index != id);
   this.totalTabs -= 1;
 };
 
 ide.removeAll = function () {
-  while (ide.totalTabs !== 0) {
-    ide.removeTab(0);
+  while (this.totalTabs !== 0) {
+    this.removeTab(0);
   }
 };
 
@@ -143,7 +136,7 @@ ide.pack = function (obj) {
   for (let i = 0; i < obj.length; i++) {
     let element = obj[i];
     if (
-      typeof element.configuration !== "object" ||
+      typeof element.configuration !== 'object' ||
       element.configuration === undefined
     ) {
       element.configuration = {};
@@ -160,7 +153,7 @@ ide.pack = function (obj) {
 ide.large = function (lst) {
   for (let i = 0; i < lst.length; i++) {
     let element = lst[i];
-    ide.createTab(element.name, element.configuration);
+    this.createTab(element.name, element.configuration);
   }
-  ide.openTab(0);
+  this.openTab(0);
 };
