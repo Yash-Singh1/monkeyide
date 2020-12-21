@@ -41,7 +41,7 @@ ide.createTab = function (tabName, configGiven) {
   newTabButton.id = tabsCurrentTotalAdded;
   newTabButton.className = 'buttonsFortab';
   newTabButton.onclick = function (event) {
-    this.openTab(event.target.id);
+    ide.openTab(event.target.id);
   };
   newTabButton.innerHTML = tabName;
   document.querySelector('.tabbuttons').appendChild(newTabButton);
