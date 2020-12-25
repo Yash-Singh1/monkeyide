@@ -10,7 +10,6 @@ To import `MonkeyIDE`, run:
 npm install --save codemirror
 curl -s -o- https://extpark.github.io/monkeyIDE/index.js > monkeyide.js
 curl -s -o- https://extpark.github.io/monkeyIDE/style.css > monkeyide.css
-
 ```
 
 Now add the following into your `HTML`:
@@ -22,13 +21,13 @@ Now add the following into your `HTML`:
 <script src="monkeyide.js"></script>
 ```
 
-`MonkeyIDE` is now fully imported! If you would like to import syntax highlighting, go to: [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on codeMirror, go to their [main website](https://codemirror.net/)
+`MonkeyIDE` is now fully imported! If you would like to import syntax highlighting, go to [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on codeMirror, go to their [main website](https://codemirror.net/)
 
 ## Using
 
 The `MonkeyIDE` controls the `ide` object, which contains everything that you need to do when controlling the `IDE` programmatically:
 
-#### Strings
+### Strings
 
 The following are some plain strings in the `ide` object:
 
@@ -39,29 +38,29 @@ The following are some plain strings in the `ide` object:
 - `license`
   This is a string that contains => `"MIT"`
 
-#### Elements
+### Elements
 
 - `buttonsBar`
-  This element contains all of the buttons that allows the user to navigate through the code editor
+  This element contains all of the buttons that allow the user to navigate through the code editor
 - `tabsElements`
   This contains the container for all of the tabs inside the code editor.
 
-#### Lists
+### Lists
 
 - `files`
   This is the one list inside the `ide` object that contains objects. These objects are in the format:
 
 ```json
 {
-	"mirror": "CodeMirror",
-	"name": "String",
-	"configuration": "Object"
+  "mirror": "CodeMirror",
+  "name": "String",
+  "configuration": "Object"
 }
 ```
 
 The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains a string for the specified string that the tab should be called. The `configuration` key contains an object for the configuration which was specified inside the call.
 
-#### Integers
+### Integers
 
 - `currentTab`
   This integer contains the current tab opened.
@@ -70,7 +69,7 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
 - `limit`
   The limit for the number of tabs that can be opened at once. Defaults to `"infinity"`. Will only be accepted if it is a `typeof` number
 
-#### Functions
+### Functions
 
 - `createTab`
   This function allows you to create a new tab for the IDE. It accepts two arguments: a string and an object. The string is the name of the tab. The object is the configuration passed into `CodeMirror`.
@@ -91,7 +90,8 @@ The `mirror` key contains the `CodeMirror` for that tab. The `name` key contains
 - `pack`
   Packs up the given list. You can run `ide.pack(ide.files)` to pack up everything now.
 - `large`
-  Mass create files. Takes in a object in the form:
+  Mass create files. Takes in an object in the form:
+
   ```json
   {
     "name": "NAME",
