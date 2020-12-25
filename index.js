@@ -19,8 +19,7 @@ ide.createTab = function (tabName, configGiven) {
   }
   let i;
   let newTabDiv = document.createElement('div');
-  newTabDiv.innerHTML =
-    '<textarea id="textarea">' + configGiven.value + '</textarea>';
+  newTabDiv.innerHTML = '<textarea id="textarea">' + configGiven.value + '</textarea>';
   newTabDiv.classList.add('tabcontent');
   if (typeof configGiven.placeholder != 'undefined') {
     newTabDiv.placeholder = configGiven.placeholder;
@@ -47,9 +46,7 @@ ide.createTab = function (tabName, configGiven) {
   document.querySelector('.tabbuttons').appendChild(newTabButton);
   this.files.push({
     mirror: CodeMirror.fromTextArea(
-      document.querySelectorAll(
-        '#tab-' + tabsCurrentTotalAdded + ' textarea'
-      )[0],
+      document.querySelectorAll('#tab-' + tabsCurrentTotalAdded + ' textarea')[0],
       configGiven
     ),
     name: tabName,
@@ -135,10 +132,7 @@ ide.pack = function (obj) {
   let returnedList = [];
   for (let i = 0; i < obj.length; i++) {
     let element = obj[i];
-    if (
-      typeof element.configuration !== 'object' ||
-      element.configuration === undefined
-    ) {
+    if (typeof element.configuration !== 'object' || element.configuration === undefined) {
       element.configuration = {};
     }
     element.configuration.value = element.mirror.getValue();
