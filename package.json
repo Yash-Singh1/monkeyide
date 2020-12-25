@@ -2,9 +2,9 @@
   "name": "monkeyide",
   "version": "1.0.0",
   "description": "A lightweight multi-tab IDE built with CodeMirror",
-  "main": "preview.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm install && node preview.js"
+    "test": "npm install && node server.js"
   },
   "author": "Yash Singh",
   "license": "MIT",

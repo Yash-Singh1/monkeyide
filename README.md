@@ -111,7 +111,7 @@ To test this program locally, run:
 npm run test
 ```
 
-Now you can view the tests at `localhost:1567/index.html`.
+Now you can view the tests at [`http://localhost:1567/`](http://localhost:1567/).
 
 ## Contributing
 

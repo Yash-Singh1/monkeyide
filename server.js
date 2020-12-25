@@ -5,14 +5,18 @@ const fs = require('fs');
 var app = express();
 
 app.get('/*', (req, res) => {
+  if (req.originalUrl == '/index.html') {
+    return res.redirect('/');
+  }
   if (fs.existsSync('.' + req.originalUrl)) {
-    if (req.originalUrl.substring(req.originalUrl.length - 4) === '.css') {
-      res.header({ 'Content-Type': 'text/css' });
-    }
-    res.send(fs.readFileSync('.' + req.originalUrl, 'utf-8'));
+    res.sendFile(req.originalUrl == '/' ? 'index.html' : req.originalUrl.substring(1), {
+      root: './',
+    });
   } else {
     res.sendStatus(204);
   }
 });
 
 app.listen(1567);
+
+console.log();
