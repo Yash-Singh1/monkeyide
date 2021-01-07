@@ -21,7 +21,7 @@ Now add the following into your `HTML`:
 <script src="monkeyide.js"></script>
 ```
 
-`MonkeyIDE` is now fully imported! If you would like to import syntax highlighting, go to [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on codeMirror, go to their [main website](https://codemirror.net/)
+`MonkeyIDE` is now fully imported! If you would like to import syntax highlighting, go to [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on `CodeMirror`, go to their [main website](https://codemirror.net/). They have multiple other addons, themes, and modes.
 
 ## Using
 
