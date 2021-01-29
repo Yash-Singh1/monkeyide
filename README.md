@@ -50,11 +50,11 @@ The following are some plain strings in the `ide` object:
 - `files`
   This is the one list inside the `ide` object that contains objects. These objects are in the format:
 
-```json
+```json5
 {
-  "mirror": "CodeMirror",
-  "name": "String",
-  "configuration": "Object"
+  "mirror": CodeMirror,
+  "name": String,
+  "configuration": Object
 }
 ```
 
