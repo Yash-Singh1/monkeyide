@@ -146,6 +146,16 @@ ide.pack = function pack(obj) {
   return returnedList;
 };
 
+ide.renameTab = function renameTab(id, newName) {
+  let tabButtons = document.getElementsByClassName('buttonsFortab');
+  for (const tabButton of tabButtons) {
+    if (tabButton == id) {
+      tabButton.innerHTML = newName;
+    }
+  }
+  this.files[id].name = newName;
+};
+
 ide.large = function large(lst) {
   for (let i = 0; i < lst.length; i++) {
     let element = lst[i];
