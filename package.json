@@ -1,6 +1,6 @@
 {
   "name": "monkeyide",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight multi-tab IDE built with CodeMirror",
   "main": "server.js",
   "scripts": {
