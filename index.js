@@ -13,7 +13,7 @@ ide.tabsElements = document.createElement('div');
 ide.tabsElements.id = 'tabs';
 document.body.appendChild(ide.tabsElements);
 
-ide.createTab = function (tabName, configGiven) {
+ide.createTab = function createTab(tabName, configGiven) {
   if (typeof this.limit === 'number' && this.totalTabs >= this.limit) {
     return;
   }
@@ -56,19 +56,19 @@ ide.createTab = function (tabName, configGiven) {
   this.totalTabs += 1;
 };
 
-ide.getCodeByTab = function (index) {
+ide.getCodeByTab = function getCodeByTab(index) {
   return this.files[index].mirror.getValue();
 };
 
-ide.getTabs = function () {
+ide.getTabs = function getTabs() {
   return this.files;
 };
 
-ide.getTab = function (id) {
+ide.getTab = function getTab(id) {
   return this.files[id];
 };
 
-ide.openTab = function (tabIDGiven) {
+ide.openTab = function openTab(tabIDGiven) {
   let tabID = 'tab-' + tabIDGiven;
   let i;
   let tabContents = document.getElementsByClassName('tabcontent');
@@ -92,7 +92,7 @@ ide.openTab = function (tabIDGiven) {
   this.currentTab = tabIDGiven;
 };
 
-ide.removeTab = function (id) {
+ide.removeTab = function removeTab(id) {
   let tabID = 'tab-' + id;
   let i;
   let tabContents = document.getElementsByClassName('tabcontent');
@@ -122,13 +122,13 @@ ide.removeTab = function (id) {
   this.totalTabs -= 1;
 };
 
-ide.removeAll = function () {
+ide.removeAll = function removeAll() {
   while (this.totalTabs !== 0) {
     this.removeTab(0);
   }
 };
 
-ide.pack = function (obj) {
+ide.pack = function pack(obj) {
   let returnedList = [];
   for (let i = 0; i < obj.length; i++) {
     let element = obj[i];
@@ -144,7 +144,7 @@ ide.pack = function (obj) {
   return returnedList;
 };
 
-ide.large = function (lst) {
+ide.large = function large(lst) {
   for (let i = 0; i < lst.length; i++) {
     let element = lst[i];
     this.createTab(element.name, element.configuration);
