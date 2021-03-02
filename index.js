@@ -100,15 +100,17 @@ ide.removeTab = function removeTab(id) {
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
     if (element.id == tabID) {
-      element.remove();
+      delete tabContents[i];
     }
   }
+  tabContents = tabContents.filter((content) => content !== undefined);
   for (i = 0; i < tabButtons.length; i++) {
     let element = tabButtons[i];
     if (element.id == tabID.substring(4)) {
-      element.remove();
+      delete tabButtons[i];
     }
   }
+  tabButtons = tabButtons.filter((button) => button !== undefined);
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
     element.id = 'tab-' + i;
