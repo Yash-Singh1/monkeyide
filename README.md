@@ -12,6 +12,12 @@ curl -s -o- https://Yash-Singh1.github.io/monkeyIDE/index.js > monkeyide.js
 curl -s -o- https://Yash-Singh1.github.io/monkeyIDE/style.css > monkeyide.css
 ```
 
+Instead of using `curl`, `npm` is recommended:
+
+```sh
+npm install --save monkeyide
+```
+
 Now add the following into your `HTML`:
 
 ```html
@@ -52,9 +58,9 @@ The following are some plain strings in the `ide` object:
 
 ```json5
 {
-  "mirror": CodeMirror,
-  "name": String,
-  "configuration": Object
+  mirror: CodeMirror,
+  name: String,
+  configuration: Object,
 }
 ```
 
