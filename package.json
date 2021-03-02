@@ -8,7 +8,7 @@
   },
   "author": "Yash Singh",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "express": "^4.17.1"
   }
 }
