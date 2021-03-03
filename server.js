@@ -10,7 +10,7 @@ app.get('/*', (req, res) => {
   }
   if (fs.existsSync('.' + req.originalUrl)) {
     res.sendFile(req.originalUrl == '/' ? 'index.html' : req.originalUrl.substring(1), {
-      root: './',
+      root: './'
     });
   } else {
     res.sendStatus(204);

@@ -55,7 +55,7 @@ ide.createTab = function createTab(tabName, configGiven) {
       configGiven
     ),
     name: tabName,
-    configuration: configGiven,
+    configuration: configGiven
   });
   this.openTab(tabsCurrentTotalAdded);
   this.totalTabs += 1;
@@ -171,7 +171,7 @@ ide.pack = function pack(obj) {
     element.configuration.value = element.mirror.getValue();
     returnedList.push({
       name: element.name,
-      configuration: element.configuration,
+      configuration: element.configuration
     });
   }
   return returnedList;

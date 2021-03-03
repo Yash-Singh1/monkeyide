@@ -52,7 +52,7 @@ The following are some plain strings in the `ide` object:
 {
   mirror: CodeMirror,
   name: String,
-  configuration: Object,
+  configuration: Object
 }
 ```
 
