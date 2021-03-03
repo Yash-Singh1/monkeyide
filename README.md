@@ -1,21 +1,13 @@
-# `MonkeyIDE`
+# `monkeyide`
 
-`MonkeyIDE` is a small lightweight multi-tab IDE written based on `CodeMirror`.
+`monkeyide` is a small lightweight multi-tab IDE written based on `CodeMirror`.
 
 ## Importing
 
-To import `MonkeyIDE`, run:
+To import `monkeyide`, run:
 
 ```sh
-npm install --save codemirror
-curl -s -o- https://Yash-Singh1.github.io/monkeyIDE/index.js > monkeyide.js
-curl -s -o- https://Yash-Singh1.github.io/monkeyIDE/style.css > monkeyide.css
-```
-
-Instead of using `curl`, `npm` is recommended:
-
-```sh
-npm install --save monkeyide
+npm install --save codemirror monkeyide
 ```
 
 Now add the following into your `HTML`:
@@ -23,15 +15,15 @@ Now add the following into your `HTML`:
 ```html
 <script src="node_modules/codemirror/lib/codemirror.js"></script>
 <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css" />
-<link rel="stylesheet" href="monkeyide.css" />
-<script src="monkeyide.js"></script>
+<script src="node_modules/monkeyide/index.js"></script>
+<link rel="stylesheet" href="node_modules/monkeyide/style.css" />
 ```
 
-`MonkeyIDE` is now fully imported! If you would like to import syntax highlighting, go to [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on `CodeMirror`, go to their [main website](https://codemirror.net/). They have multiple other addons, themes, and modes.
+`monkeyide` is now fully imported! If you would like to import syntax highlighting, go to [https://codemirror.net/mode/](https://codemirror.net/mode/), from the documentation for more information on that. Here is a link with an index of themes: [https://codemirror.net/theme/](https://codemirror.net/theme/). Just import a theme as: `node_modules/codemirror/theme/*.css`. Replace `*` with the theme name. For more information on `CodeMirror`, go to their [main website](https://codemirror.net/). They have multiple other addons, themes, and modes.
 
 ## Using
 
-The `MonkeyIDE` controls the `ide` object, which contains everything that you need to do when controlling the `IDE` programmatically:
+The `monkeyide` controls the `ide` object, which contains everything that you need to do when controlling the `IDE` programmatically:
 
 ### Strings
 
