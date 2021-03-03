@@ -13,6 +13,11 @@ ide.tabsElements = document.createElement('div');
 ide.tabsElements.id = 'tabs';
 document.body.appendChild(ide.tabsElements);
 
+/**
+ * Create a new tab
+ * @param {string} tabName The name of the new tab
+ * @param {Object} configGiven The configuration for the new tab
+ */
 ide.createTab = function createTab(tabName, configGiven) {
   if (typeof this.limit === 'number' && this.totalTabs >= this.limit) {
     return;
@@ -56,18 +61,33 @@ ide.createTab = function createTab(tabName, configGiven) {
   this.totalTabs += 1;
 };
 
+/**
+ * Get the code for a certain index's tab
+ * @param {number} index The tab index to remove
+ */
 ide.getCodeByTab = function getCodeByTab(index) {
   return this.files[index].mirror.getValue();
 };
 
+/**
+ * Get a list of all the tabs
+ */
 ide.getTabs = function getTabs() {
   return this.files;
 };
 
-ide.getTab = function getTab(id) {
-  return this.files[id];
+/**
+ * Get information on a certain tab
+ * @param {number} id The index of the tab
+ */
+ide.getTab = function getTab(index) {
+  return this.files[index];
 };
 
+/**
+ * Open up a tab
+ * @param {number} tabIDGiven The index of the tab to open
+ */
 ide.openTab = function openTab(tabIDGiven) {
   let tabID = 'tab-' + tabIDGiven;
   let i;
@@ -92,8 +112,12 @@ ide.openTab = function openTab(tabIDGiven) {
   this.currentTab = tabIDGiven;
 };
 
-ide.removeTab = function removeTab(id) {
-  let tabID = 'tab-' + id;
+/**
+ * Remove a tab
+ * @param {number} indexOfTab The index of the tab to remove
+ */
+ide.removeTab = function removeTab(indexOfTab) {
+  let tabID = 'tab-' + indexOfTab;
   let i;
   let tabContents = document.getElementsByClassName('tabcontent');
   let tabButtons = document.getElementsByClassName('buttonsFortab');
@@ -120,16 +144,23 @@ ide.removeTab = function removeTab(id) {
     element.id = i;
   }
   this.openTab(0);
-  this.files = this.files.filter((value, index) => index != id);
+  this.files = this.files.filter((value, index) => index != indexOfTab);
   this.totalTabs -= 1;
 };
 
+/**
+ * Remove all tabs
+ */
 ide.removeAll = function removeAll() {
   while (this.totalTabs !== 0) {
     this.removeTab(0);
   }
 };
 
+/**
+ * Pack up all the tabs so they can be reused
+ * @param {Array<{ name: string, configuration: Object }>} obj The files to pack up, usually the ide.files
+ */
 ide.pack = function pack(obj) {
   let returnedList = [];
   for (let i = 0; i < obj.length; i++) {
@@ -146,16 +177,25 @@ ide.pack = function pack(obj) {
   return returnedList;
 };
 
-ide.renameTab = function renameTab(id, newName) {
+/**
+ * Rename a tab
+ * @param {number} index The index of the tab to rename
+ * @param {string} newName The new name for the tab
+ */
+ide.renameTab = function renameTab(index, newName) {
   let tabButtons = document.getElementsByClassName('buttonsFortab');
   for (const tabButton of tabButtons) {
-    if (tabButton == id) {
+    if (tabButton == index) {
       tabButton.innerHTML = newName;
     }
   }
-  this.files[id].name = newName;
+  this.files[index].name = newName;
 };
 
+/**
+ * Create multiple tabs
+ * @param {Array<{ name: string, configuration: Object }>} lst The tabs to create
+ */
 ide.large = function large(lst) {
   for (let i = 0; i < lst.length; i++) {
     let element = lst[i];
