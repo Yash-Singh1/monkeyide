@@ -1,7 +1,7 @@
 var ide = {};
 
 ide.name = 'monkeyide';
-ide.version = '1.1.1';
+ide.version = '1.1.2';
 ide.license = 'MIT';
 ide.buttonsBar = document.createElement('div');
 ide.buttonsBar.className = 'tabbuttons';
