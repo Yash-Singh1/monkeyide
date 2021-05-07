@@ -134,7 +134,7 @@ ide.removeTab = function removeTab(indexOfTab) {
       delete tabButtons[i];
     }
   }
-  tabButtons = tabButtons.filter((button) => button !== undefined);
+  tabButtons = [...tabButtons].filter((button) => button !== undefined);
   for (i = 0; i < tabContents.length; i++) {
     let element = tabContents[i];
     element.id = 'tab-' + i;
