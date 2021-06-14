@@ -7,7 +7,7 @@
 To import `monkeyide`, run:
 
 ```sh
-npm install --save codemirror monkeyide
+npm install codemirror monkeyide
 ```
 
 Now add the following into your `HTML`:
